@@ -35,7 +35,7 @@
   {"balanceGreaterThan100": "true", "ethType":"bool"}
   ],
     "HRCondition": [
-      "Last 24 Hours Average Balance > 1000  USDT"
+      "Balance > 1000  USDT"
     ],
     "tips": {
       "message": "When you successfully log in, please click the 'Start' button to initiate the verification process."

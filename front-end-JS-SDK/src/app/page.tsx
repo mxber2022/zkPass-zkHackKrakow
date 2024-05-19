@@ -5,6 +5,9 @@ import TransgateConnect from "@zkpass/transgate-js-sdk"
 import styled from "styled-components"
 import JSONPretty from "react-json-pretty"
 import { verifyMessageSignature } from "./helper"
+import { ethers } from "ethers"
+import AttestationABI from "./AttestationABI.json"
+import { useEffect } from "react"
 
 const FormGrid = styled.div`
   display: grid;
@@ -83,10 +86,16 @@ export default function Home() {
     Balance > 1000 USDT
   */
   const [appid1, setAppid1] = useState<string>("629b0bc3-fdd1-4806-8c51-084bf7aa7414")
-  const [value1, setValue1] = useState<string>("f9033e775dd8475089ee06759004e180")
+  const [value1, setValue1] = useState<string>("cb82bf53904c4c7c93bb5d9114abab33")
 
-  const [appid2, setAppid2] = useState<string>("39a00e9e-7e6d-461e-9b9d-d520b355d1c0")
-  const [value2, setValue2] = useState<string>("c7eab8b7d7e44b05b41b613fe548edf5")
+
+  /*
+     Balance < 1000 USDT
+  */
+  const [appid2, setAppid2] = useState<string>("629b0bc3-fdd1-4806-8c51-084bf7aa7414")
+  const [value2, setValue2] = useState<string>("6fa9de1c14a94179b1054b0049c36431")
+
+
   const [value3, setValue3] = useState<string>("762be634cfa1473eaaf374fa48504886")
 
   const [result, setResult] = useState<any>()
@@ -100,6 +109,21 @@ export default function Home() {
       if (!isAvailable) {
         return alert("Please install zkPass TransGate")
       }
+
+
+
+      //@ts-ignore
+      if (window.ethereum == null) {
+        return alert("MetaMask not installed")
+      }
+      //@ts-ignore
+      const provider = new ethers.BrowserProvider(window.ethereum)
+      console.log("provider", provider)
+      const signer = await provider.getSigner()
+      //get your ethereum address
+      const account = await signer.getAddress()   
+      const contractAddress = "0x8c18c0436A8d6ea44C87Bf5853F8D11B55CF0302"   
+
 
       const resultList: any[] = []
       while (schemas.length > 0) {
@@ -115,6 +139,33 @@ export default function Home() {
           res.validatorAddress
         )
         console.log("verifyResult", verifyResult)
+
+        const chainParams = {
+          taskId: res.taskId,
+          schemaId,
+          uHash: res.uHash,
+          recipient: account,        
+          publicFieldsHash: res.publicFieldsHash,        
+          validator: res.validatorAddress,
+          allocatorSignature: res.allocatorSignature,
+          validatorSignature: res.validatorSignature,        
+        }  
+        
+
+      //  const contract = new ethers.Contract(contractAddress, AttestationABI, provider)      
+      // const data = contract.interface.encodeFunctionData("attest", [chainParams])
+      // console.log("damn 2");
+      // let transaction = {
+      //   to: contractAddress,
+      //   from: account,
+      //   value: 0,
+      //   data,
+      // }
+      // // console.log("transaction", transaction)
+      // let tx = await signer?.sendTransaction(transaction)
+      // console.log("transaction hash====>", tx.hash)
+      // alert('Transaction sent successfully!')
+
       }
       if (resultList.length == 1) {
         setResult(resultList)
@@ -127,20 +178,36 @@ export default function Home() {
     }
   }
 
+
   return (
     <main className={styles.main}>
       <h1 className={styles.title}>Create Your ZK Pass to Access the Benefits of Lighter.xyz</h1>
       <FormGrid>
         <FromContainer>
+
+        <FormItem>
+          <p className={styles.subTitle}>Have you completed kyc on centralised exchange?</p>
+            <RightContainer>
+              <Button className={styles.button}  onClick={() => start([value1], appid1)}>Verify here! </Button>
+            </RightContainer>
+          </FormItem>
           
           <FormItem>
-          <p className={styles.subTitle}>Are you holding 1 million in your account?</p>
+          <p className={styles.subTitle}>Are you holding 1 million $ in your account?</p>
             <RightContainer>
               <Button className={styles.button}  onClick={() => start([value1], appid1)}>Whale, Verify here! </Button>
             </RightContainer>
           </FormItem>
+
           <FormItem>
-            {result && <JSONPretty themeClassName='custom-json-pretty' id='json-pretty' data={result}></JSONPretty>}
+          <p className={styles.subTitle}>Are you holding less then 1000 $ in your account?</p>
+            <RightContainer>
+              <Button className={styles.button}  onClick={() => start([value2], appid2)}>Retail Trader, Verify here! </Button>
+            </RightContainer>
+          </FormItem>
+
+          <FormItem>
+            {result && <JSONPretty className={styles.customJsonPretty} id='json-pretty' data={result}></JSONPretty>}
           </FormItem>
         </FromContainer>
         {/* <FromContainer>

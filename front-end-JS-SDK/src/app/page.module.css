@@ -52,3 +52,7 @@
   margin-top: 20px; /* Add space above */
   font-family: 'Caveat', cursive; /* Funky font family */
 }
+
+.custom-json-pretty {
+  color: #333; /* Change font color to dark gray */
+}
