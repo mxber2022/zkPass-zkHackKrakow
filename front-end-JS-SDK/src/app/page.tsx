@@ -113,9 +113,9 @@ export default function Home() {
 
 
       //@ts-ignore
-      if (window.ethereum == null) {
-        return alert("MetaMask not installed")
-      }
+      // if (window.ethereum == null) {
+      //   return alert("MetaMask not installed")
+      // }
       //@ts-ignore
       // const provider = new ethers.BrowserProvider(window.ethereum)
       // console.log("provider", provider)
