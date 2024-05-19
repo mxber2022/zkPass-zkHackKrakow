@@ -145,7 +145,7 @@ export default function Home() {
             {result && <JSONPretty themeClassName='custom-json-pretty' id='json-pretty' data={result}></JSONPretty>}
           </FormItem>
         </FromContainer>
-        <FromContainer>
+        {/* <FromContainer>
           <FormItem>
             <Label>Appid:</Label>
             <Input value={appid2} onInput={(e) => setAppid2(e.target.value)} />
@@ -153,20 +153,20 @@ export default function Home() {
           <FormItem>
             <Label>Schema Id1:</Label>
             <Input value={value2} onInput={(e) => setValue2(e.target.value)} />
-          </FormItem>
-          <FormItem>
+          </FormItem> 
+           <FormItem>
             <Label>Schema Id2:</Label>
             <Input value={value3} onInput={(e) => setValue3(e.target.value)} />
-          </FormItem>
-          <FormItem>
+          </FormItem> 
+           <FormItem>
             <RightContainer>
               <Button onClick={() => start([value2, value3], appid2)}>Start multi-schemas</Button>
             </RightContainer>
-          </FormItem>
+          </FormItem> 
           <FormItem>
             {result2 && <JSONPretty themeClassName='custom-json-pretty' id='json-pretty1' data={result2}></JSONPretty>}
           </FormItem>
-        </FromContainer>
+        </FromContainer> */}
       </FormGrid>
     </main>
   )
