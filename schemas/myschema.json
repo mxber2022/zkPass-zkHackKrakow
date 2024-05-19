@@ -1,0 +1,43 @@
+{
+    "issuer": "Binance",
+    "desc": "A global cryptocurrency exchange facilitating trading of a diverse array of digital currencies.",
+    "website": "https://www.binance.com/my/dashboard",
+    "APIs": [
+      {
+        "host": "www.binance.com",
+        "intercept": {
+          "url": "bapi/accounts/v1/private/account/user/base-detail",
+          "method": "POST"
+        },
+        "nullifier": "data|userId"
+      },
+      {
+        "host": "www.binance.com",
+        "intercept": {
+          "url": "bapi/asset/v2/private/asset-service/wallet/balance",
+          "method": "GET"
+        },
+  "override": {"query":[{
+  "quoteAsset":"USDT", "verify":true}]},
+  
+        "assert": [
+          {
+            "key": "data|?=0|balance",
+            "value": "1000.00000000",
+            "operation": ">",
+            "tips": "your balance should be more that 1000 USDT"
+          }
+        ]
+      }
+    ],
+  "OnChainSchema": [
+  {"source":"Binance", "ethType":"string"},
+  {"balanceGreaterThan100": "true", "ethType":"bool"}
+  ],
+    "HRCondition": [
+      "Last 24 Hours Average Balance > 1000  USDT"
+    ],
+    "tips": {
+      "message": "When you successfully log in, please click the 'Start' button to initiate the verification process."
+    }
+  }
