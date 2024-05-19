@@ -79,9 +79,13 @@ const Title = styled.h2`
 `
 
 export default function Home() {
-  const [appid1, setAppid1] = useState<string>("39a00e9e-7e6d-461e-9b9d-d520b355d1c0")
+  /* 
+    Balance > 1000 USDT
+  */
+  const [appid1, setAppid1] = useState<string>("629b0bc3-fdd1-4806-8c51-084bf7aa7414")
+  const [value1, setValue1] = useState<string>("f9033e775dd8475089ee06759004e180")
+
   const [appid2, setAppid2] = useState<string>("39a00e9e-7e6d-461e-9b9d-d520b355d1c0")
-  const [value1, setValue1] = useState<string>("c7eab8b7d7e44b05b41b613fe548edf5")
   const [value2, setValue2] = useState<string>("c7eab8b7d7e44b05b41b613fe548edf5")
   const [value3, setValue3] = useState<string>("762be634cfa1473eaaf374fa48504886")
 
@@ -125,20 +129,14 @@ export default function Home() {
 
   return (
     <main className={styles.main}>
-      <Title>zkPass Transgate JS-SDK Demo</Title>
+      <h1 className={styles.title}>Create Your ZK Pass to Access the Benefits of Lighter.xyz</h1>
       <FormGrid>
         <FromContainer>
+          
           <FormItem>
-            <Label>Appid:</Label>
-            <Input value={appid1} onInput={(e) => setAppid1(e.target.value)} />
-          </FormItem>
-          <FormItem>
-            <Label>Schema Id:</Label>
-            <Input value={value1} onInput={(e) => setValue1(e.target.value)} />
-          </FormItem>
-          <FormItem>
+          <p className={styles.subTitle}>Are you holding 1 million in your account?</p>
             <RightContainer>
-              <Button onClick={() => start([value1], appid1)}>Start Single Schema</Button>
+              <Button className={styles.button}  onClick={() => start([value1], appid1)}>Whale, Verify here! </Button>
             </RightContainer>
           </FormItem>
           <FormItem>

@@ -1,7 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
 .main {
-  display: flex;  
+  display: flex;
   flex-direction: column;
   padding: 6rem;
   min-height: 100vh;
-  background-color: #000000;
+  background-color: #ffefd5; /* Light peach color */
+}
+
+.title {
+  font-size: 3em; /* Larger size for emphasis */
+  color: #ff5733; /* Bright and funky color */
+  text-align: center; /* Center-align the text */
+  font-weight: bold; /* Make the text bold */
+  margin: 30px 0; /* Add some space above and below */
+  font-family: 'Caveat', cursive; /* Funky font family */
+  letter-spacing: 2px; /* Increase spacing between letters */
+  border-bottom: 3px solid #ff5733; /* Add an underline effect */
+  padding-bottom: 10px; /* Space between text and underline */
+}
+
+.itemhidden {
+  display: none;
+}
+
+.button {
+  font-size: 5em; /* Larger font size */
+  color: #fff; /* White text color */
+  background-color: #ff5733; /* Bright and funky background color */
+  border: none; /* Remove default border */
+  border-radius: 20px; /* Rounded corners */
+  padding: 20px 40px; /* Increased padding for the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-family: 'Caveat', cursive; /* Funky font family */
+  text-transform: uppercase; /* Uppercase text */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+  margin: 20px auto; /* Center the button with margin */
+  display: block; /* Block display to center */
+}
+
+.button:hover {
+  background-color: #ff7657; /* Slightly lighter on hover */
+  transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.subTitle {
+  font-size: 1.5em; /* Larger font size */
+  color: #333; /* Dark gray color */
+  text-align: center; /* Center-align the text */
+  margin-top: 20px; /* Add space above */
+  font-family: 'Caveat', cursive; /* Funky font family */
 }
