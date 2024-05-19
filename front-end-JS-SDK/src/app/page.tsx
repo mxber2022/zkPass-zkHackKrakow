@@ -101,7 +101,7 @@ export default function Home() {
   const [result, setResult] = useState<any>()
   const [result2, setResult2] = useState<any>()
 
-  const start = async (schemas: string[], appid: string) => {
+  const start = async (schemas: string[]) => {
     try {
       const connector = new TransgateConnect("629b0bc3-fdd1-4806-8c51-084bf7aa7414")
 
@@ -188,21 +188,21 @@ export default function Home() {
         <FormItem>
           <p className={styles.subTitle}>Have you completed kyc on centralised exchange?</p>
             <RightContainer>
-              <Button className={styles.button}  onClick={() => start([value1], appid1)}>Verify here! </Button>
+              <Button className={styles.button}  onClick={() => start([value1])}>Verify here! </Button>
             </RightContainer>
           </FormItem>
           
           <FormItem>
           <p className={styles.subTitle}>Are you holding 1 million $ in your account?</p>
             <RightContainer>
-              <Button className={styles.button}  onClick={() => start([value1], appid1)}>Whale, Verify here! </Button>
+              <Button className={styles.button}  onClick={() => start([value1])}>Whale, Verify here! </Button>
             </RightContainer>
           </FormItem>
 
           <FormItem>
           <p className={styles.subTitle}>Are you holding less then 1000 $ in your account?</p>
             <RightContainer>
-              <Button className={styles.button}  onClick={() => start([value2], appid2)}>Retail Trader, Verify here! </Button>
+              <Button className={styles.button}  onClick={() => start([value2])}>Retail Trader, Verify here! </Button>
             </RightContainer>
           </FormItem>
 
