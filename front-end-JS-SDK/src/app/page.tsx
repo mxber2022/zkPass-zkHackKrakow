@@ -117,12 +117,12 @@ export default function Home() {
         return alert("MetaMask not installed")
       }
       //@ts-ignore
-      const provider = new ethers.BrowserProvider(window.ethereum)
-      console.log("provider", provider)
-      const signer = await provider.getSigner()
-      //get your ethereum address
-      const account = await signer.getAddress()   
-      const contractAddress = "0x8c18c0436A8d6ea44C87Bf5853F8D11B55CF0302"   
+      // const provider = new ethers.BrowserProvider(window.ethereum)
+      // console.log("provider", provider)
+      // const signer = await provider.getSigner()
+      // //get your ethereum address
+      // const account = await signer.getAddress()   
+      // const contractAddress = "0x8c18c0436A8d6ea44C87Bf5853F8D11B55CF0302"   
 
 
       const resultList: any[] = []
