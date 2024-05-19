@@ -102,7 +102,7 @@ export default function Home() {
   const [result2, setResult2] = useState<any>()
 
   const start = async (schemas: string[]) => {
-   
+    try {
       const connector = new TransgateConnect("629b0bc3-fdd1-4806-8c51-084bf7aa7414")
 
       const isAvailable = await connector.isTransgateAvailable()
@@ -172,7 +172,10 @@ export default function Home() {
       } else {
         setResult2(resultList)
       }
-    
+    } catch (err) {
+      alert(JSON.stringify(err))
+      console.log("error me", err)
+    }
   }
 
 
