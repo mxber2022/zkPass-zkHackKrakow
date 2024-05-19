@@ -103,7 +103,7 @@ export default function Home() {
 
   const start = async (schemas: string[], appid: string) => {
     try {
-      const connector = new TransgateConnect(appid)
+      const connector = new TransgateConnect("629b0bc3-fdd1-4806-8c51-084bf7aa7414")
 
       const isAvailable = await connector.isTransgateAvailable()
       if (!isAvailable) {
