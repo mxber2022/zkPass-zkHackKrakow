@@ -138,7 +138,7 @@ export default function Home() {
       alert('Transaction sent successfully!')
     } catch (err) {
       alert(JSON.stringify(err))
-      console.log("error", err)
+      console.log("error lol", err)
     }
   }
   return (

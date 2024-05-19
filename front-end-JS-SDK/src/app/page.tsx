@@ -174,7 +174,7 @@ export default function Home() {
       }
     } catch (err) {
       alert(JSON.stringify(err))
-      console.log("error", err)
+      console.log("error me", err)
     }
   }
 
