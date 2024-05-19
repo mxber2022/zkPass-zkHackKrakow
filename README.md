@@ -2,7 +2,7 @@
 
 Welcome to the zkGuard GitHub repository! zkGuard is a revolutionary protocol designed to enable users to verify their account balances, KYC (Know Your Customer) information, and trading data securely and privately, without the need to disclose any personal data. This repository contains all the necessary tools, documentation, and resources to seamlessly integrate zkGuard into the https://lighter.xyz/ decentralized exchange (DEX), offering users enhanced privacy and security features.
 
-![Project Logo](/images/logo.png)
+![Project Logo](https://github.com/mxber2022/zkPass-zkHackKrakow/blob/main/front-end-JS-SDK/public/images/UI.png)
 
 #### Features:
 
