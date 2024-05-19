@@ -140,16 +140,16 @@ export default function Home() {
         )
         console.log("verifyResult", verifyResult)
 
-        const chainParams = {
-          taskId: res.taskId,
-          schemaId,
-          uHash: res.uHash,
-          recipient: account,        
-          publicFieldsHash: res.publicFieldsHash,        
-          validator: res.validatorAddress,
-          allocatorSignature: res.allocatorSignature,
-          validatorSignature: res.validatorSignature,        
-        }  
+        // const chainParams = {
+        //   taskId: res.taskId,
+        //   schemaId,
+        //   uHash: res.uHash,
+        //   recipient: account,        
+        //   publicFieldsHash: res.publicFieldsHash,        
+        //   validator: res.validatorAddress,
+        //   allocatorSignature: res.allocatorSignature,
+        //   validatorSignature: res.validatorSignature,        
+        // }  
         
 
       //  const contract = new ethers.Contract(contractAddress, AttestationABI, provider)      
